@@ -20,8 +20,8 @@ jobs:
       - name: Build libs
         run: make libs
         
-#       - name: Test
-#         run: make test
+      - name: Test
+        run: make test
                 
       - name: Build package
         run: make clean all
@@ -29,13 +29,15 @@ jobs:
       - name: list build directory
         run: |
           ls -ltr build/
-          pwd
-          ls -ltr
       
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         if: always()
         with:
-          name: auto-pipeline-jar
+          name: infra-problem-jars
           path: ./build
+          retention: 5
+          
+      - name: Get gh run ID to download artifacts
+        run: echo "$GITHUB_RUN_ID"
         
