@@ -27,14 +27,15 @@ jobs:
         run: make clean all
         
       - name: list build directory
-        run: ls -ltr build/
+        run: |
+          ls -ltr build/
+          pwd
+          ls -ltr
       
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         if: always()
         with:
-          # Artifact name
           name: auto-pipeline-jar
-          # Directory containing files to upload
-          path: ./build/*.jar
+          path: ./build
         
