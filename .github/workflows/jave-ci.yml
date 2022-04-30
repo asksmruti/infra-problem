@@ -17,5 +17,8 @@ jobs:
       - name: Install leiningen
         run: brew install leiningen
         
-      - name: Build with Maven
+      - name: Build libs
+        run: make libs
+        
+      - name: Test
         run: make test
