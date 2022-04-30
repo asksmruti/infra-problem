@@ -3,7 +3,7 @@ name: Java CI
 on: [push]
 
 jobs:
-  build:
+  CI:
     runs-on: macos-latest
 
     steps:
@@ -25,4 +25,7 @@ jobs:
                 
       - name: Build package
         run: make clean all
+        
+      - name: list build directory
+        run: ls -ltr build/
         
