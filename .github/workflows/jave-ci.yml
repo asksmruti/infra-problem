@@ -20,12 +20,21 @@ jobs:
       - name: Build libs
         run: make libs
         
-      - name: Test
-        run: make test
+#       - name: Test
+#         run: make test
                 
       - name: Build package
         run: make clean all
         
       - name: list build directory
         run: ls -ltr build/
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        if: always()
+        with:
+          # Artifact name
+          name: auto-pipeline-jar
+          # Directory containing files to upload
+          path: ./build/*.jar
         
