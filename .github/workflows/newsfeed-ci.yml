@@ -36,7 +36,7 @@ jobs:
         with:
           name: infra-problem-jars
           path: ./build
-          retention: 5
+          retention: 10
           
       - name: Get gh run ID to download artifacts
         run: echo "$GITHUB_RUN_ID"
